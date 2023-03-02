@@ -139,7 +139,7 @@ class PostController extends Controller
         Mail::to($datos_register['email_usuario'])->send(new MailRegister($datos_register));
 
         $allPosts = Post::allPosts();
-        $administrator = Administrator::find(1);
+        $administrator = Administrator::find(\Auth::user()->id);
 
         $datos_administrator = [
             'nombre_administrator' => $administrator->nombre,

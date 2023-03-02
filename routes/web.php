@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 Route::resource('posts','App\Http\Controllers\PostController');
 
 Route::get('/email', function () {
+    return \Auth::user()->id ;
     $allPosts = Post::allPosts();
     $administrator = Administrator::find(1);
 
